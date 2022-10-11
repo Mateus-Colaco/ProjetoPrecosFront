@@ -1,0 +1,12 @@
+.yzl.zl.crisp{
+    visibility: hidden;
+}
+.user-select-none.svg-container{
+    background-color: hsla(178,50%,100%, 0.6);
+    border-radius: 2rem;
+}
+
+#plotlyChart{
+    margin-top:2rem;
+    height: 100%;
+}

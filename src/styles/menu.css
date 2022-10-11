@@ -1,0 +1,8 @@
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft{
+    background-color: #00807b !important;
+    border-radius: 0px 3.5rem 3.5rem 0px;
+}
+
+.MuiDrawer-root .MuiBackdrop-root{
+    background-color: transparent !important;
+}
