@@ -51,7 +51,7 @@ export default function BasicSelect() {
     };
 
     const handleClick = ()=>{
-        axios.get('https://mainbacktest.herokuapp.com/historico', { params: {'usuario': name, 'pesquisado_dia': document.getElementById('searchDBDate').innerHTML} }).then(
+        axios.get('http://177.71.194.1:8626/historico', { params: {'usuario': name, 'pesquisado_dia': document.getElementById('searchDBDate').innerHTML} }).then(
             (resp) => {
                 let clientes = []
                 let varejistas = []
