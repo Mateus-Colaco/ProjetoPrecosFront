@@ -27,7 +27,7 @@ function MuiButtons(props){
         const [prices, periodo] = setPricesAndDate()
         if (document.getElementById('usernameVal').innerHTML !== ''){
             createPlot(prices, periodo)
-            setTimeout(()=>axios.post('https://mainbacktest.herokuapp.com/', { params: setDataToSave() }), 500)
+            setTimeout(()=>axios.post('http://177.71.194.1:8626/', { params: setDataToSave() }), 500)
         } else { alert('Login Não realizado') }
     } 
     return(
