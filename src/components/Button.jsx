@@ -1,9 +1,9 @@
 import axios from 'axios';
 import * as React from 'react';
 import { AppPlot } from './Plot';
-import { Button } from "/@mui/material";
+import { Button } from "@mui/material";
 import ReactDOM from 'react-dom/client';
-import { ButtonGroup } from "/@mui/material";
+import { ButtonGroup } from "@mui/material";
 import CustomizedTables from './Table/PriceTable';
 import AddChart from '/@mui/icons-material/AddChart';
 import { setPricesAndDate, setDataToSave } from '../mainFunctions';
