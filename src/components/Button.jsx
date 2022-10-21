@@ -5,7 +5,6 @@ import { Button } from "@mui/material";
 import ReactDOM from 'react-dom/client';
 import { ButtonGroup } from "@mui/material";
 import CustomizedTables from './Table/PriceTable';
-import AddChart from '@mui/icons-material/AddChart';
 import { setPricesAndDate, setDataToSave } from '../mainFunctions';
 
 const btnStyle = {padding:'0.9rem', backgroundColor: '#E98E29', borderRadius:"30px", transition: '0.6s','&:hover': {backgroundColor: 'hsla(32,81%,60%, 1)'}}
@@ -33,7 +32,7 @@ function MuiButtons(props){
     return(
         <span>
             <ButtonGroup>
-                <Button sx={btnStyle} onClick={()=>{ handleSubmit()}} endIcon={<AddChart/>} variant="contained" disableElevation>{props.text}</Button>
+                <Button sx={btnStyle} onClick={()=>{ handleSubmit()}} variant="contained" disableElevation>{props.text}</Button>
             </ButtonGroup>
         </span>
     )
