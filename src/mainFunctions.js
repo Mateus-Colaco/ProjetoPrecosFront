@@ -1,7 +1,7 @@
 import axios from 'axios';
 var dbData
 
-axios.get('https://mainbacktest.herokuapp.com/prices').then((resp)=> {dbData = resp.data})
+axios.get('http://177.71.194.1:8626/prices').then((resp)=> {dbData = resp.data})
 
 function setPricesAndDate(returnOnlyYears=false) {
 
