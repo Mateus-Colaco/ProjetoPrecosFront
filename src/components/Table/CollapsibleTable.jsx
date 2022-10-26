@@ -36,6 +36,7 @@ function Row(props) {
         <TableCell sx={cellStyle} align="left">{row.cliente}</TableCell>
         <TableCell sx={cellStyle} align="left">{row.Submercado}</TableCell>
         <TableCell sx={cellStyle} align="left">{row.Fonte}</TableCell>
+        <TableCell sx={cellStyle} align="left">{row.Flexibilidade}</TableCell>
         <TableCell sx={cellStyle} align="left">{row.Encargo}</TableCell>
         <TableCell sx={cellStyle} align="left">{row.Varejo}</TableCell>
       </TableRow>
@@ -51,7 +52,7 @@ function Row(props) {
                   <TableRow hover={true}>
                     <TableCell>Ano</TableCell>
                     <TableCell>Preço</TableCell>
-                    <TableCell>Início Fornecimento</TableCell>
+                    <TableCell>Início do Fornecimento</TableCell>
                     <TableCell>Fim do Fornecimento</TableCell>
                   </TableRow>
                 </TableHead>
@@ -91,6 +92,7 @@ export default function Table2(props) {
             <TableCell sx={headStyle}>Cliente</TableCell>
             <TableCell sx={headStyle}>Submercado</TableCell>
             <TableCell sx={headStyle}>Fonte</TableCell>
+            <TableCell sx={headStyle}>Flexibilidade</TableCell>
             <TableCell sx={headStyle}>Encargo</TableCell>
             <TableCell sx={headStyle}>Varejo</TableCell>
           </TableRow>
