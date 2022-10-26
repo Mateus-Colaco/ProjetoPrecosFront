@@ -13,9 +13,7 @@ export default function BasicCard(props) {
             </Typography>
         </CardContent>
         <CardContent>
-            <Typography sx={{textAlign:'center', color:'gray', fontFamily:'Montserrat Semibold'}} variant="h5">
                 {props.content}
-            </Typography>
         </CardContent>
     </Card>
   );
