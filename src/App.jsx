@@ -7,6 +7,7 @@ import MaterialUIPickers from './components/DtPicker'
 import PerfilCliente from './components/PerfilCliente'
 import RadioButtons1 from './components/subMercado'
 import InputName from './components/InputName'
+import DiscreteSliderValues from './components/FlexSlider'
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <FonteRadioButtons />
           <RadioButtons1 />
           <PerfilCliente />
+          <Grid container justifyContent="space-around">
+            <DiscreteSliderValues/>
+          </Grid>
         <Grid sx={{marginTop:'1.25rem !important'}} container justifyContent="space-around">
           <MuiButtons text='Gerar Preços' />
         </Grid>
