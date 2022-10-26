@@ -11,9 +11,10 @@ import Grid from '@mui/material/Unstable_Grid2'
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
-import Table2 from '../components/Table/CollapsibleTable'
+import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
+import Table2 from '../components/Table/CollapsibleTable';
 import { LoginData } from "../components/loginComponents/Popup";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
@@ -23,8 +24,13 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 const btnStyle = {padding:'0.9rem', backgroundColor: '#E98E29', borderRadius:"30px",color:'white', fontFamily:'Montserrat Semibold', transition: '0.6s','&:hover': {backgroundColor: 'hsla(32,81%,60%, 1)'}}
 const style0 = {alignItems:'center', justifyContent:'space-around'}
 const style3 = {...style0}
-
+const cardStyle = {textAlign:'center', color:'gray', fontFamily:'Montserrat Semibold'}
 export default function BasicSelect() {
+    function Typ(props){
+        return(
+            <Typography sx={cardStyle} variant="h5">{props.cont}</Typography>
+        )
+    }
     const date = new Date()
     function DateSelector(){
         const [valueDt, setValueDt] = React.useState(dayjs(date));
@@ -63,11 +69,11 @@ export default function BasicSelect() {
                 ReactDOM.createRoot(document.getElementById('dataCards')).render(
                     <span>
                     <Grid container rowSpacing={2} columnSpacing={1}>
-                        <Grid> <BasicCard titulo="N° de Clientes" content={[...new Set(clientes)].length}/> </Grid>
-                        <Grid> <BasicCard titulo="N° de Propostas" content={resp.data.length}/> </Grid>
+                        <Grid> <BasicCard titulo="N° de Clientes" content={<Typ cont={[...new Set(clientes)].length}/>}/> </Grid>
+                        <Grid> <BasicCard titulo="N° de Propostas" content={<Typ cont={resp.data.length}/>}/> </Grid>
                     </Grid>
                     <Grid container spacing={2}>
-                        <Grid xs={12}> <BasicCard titulo="N° de Varejistas" content={i}/> </Grid>
+                        <Grid xs={12}> <BasicCard titulo="N° de Varejistas" content={<Typ cont={i}/>}/> </Grid>
                     </Grid>
                     </span>
                 );            
