@@ -1,14 +1,13 @@
 import axios from 'axios';
 var dbData
-
 axios.get('http://177.71.194.1:8626/prices').then((resp)=> {dbData = resp.data})
 
 function setPricesAndDate(returnOnlyYears=false) {
 
   var [objData, objName, dataFornecimento, precos, allYears] = setValsJson(dbData)
   if(!returnOnlyYears){
-    let [spreadSubM, spreadFont, spreadVarejo, spreadEncargo] = setSpreads()
-    precos=precos.map(x => x+spreadFont+spreadSubM+spreadVarejo+spreadEncargo)
+    let [spreadSubM, spreadFont, spreadVarejo, spreadEncargo, spreadFlex] = setSpreads()
+    precos=precos.map(x => x+spreadFont+spreadSubM+spreadVarejo+spreadEncargo + spreadFlex)
     const results = setPrices(dataFornecimento, precos)
     return (
       [
@@ -70,7 +69,7 @@ function setPrices(dates, prices) {
 }
 
 function setSpreads(){
-  let spreadSubM, spreadFont, spreadEncargo, spreadVarejo
+  let spreadSubM, spreadFont, spreadEncargo, spreadVarejo, spreadFlex
   switch(document.querySelector('[name="subM-val"]:checked').value){
     case 'seco':
       spreadSubM = 0;
@@ -110,14 +109,36 @@ function setSpreads(){
   } else {
     spreadEncargo = 41.25
   }
-  return [spreadSubM, spreadFont, spreadVarejo, spreadEncargo]
+
+  switch((document.querySelector('input[type="range"]').value / 100) * 4){
+    case 0:
+      spreadFlex = 0
+      break
+    case 1:
+      spreadFlex = 5
+      break
+    case 2:
+      spreadFlex = 10
+      break
+    case 3:
+      spreadFlex = 15
+      break
+    case 3.96:
+      spreadFlex = 20
+      break
+    default:
+      spreadFlex = 0
+      break
+  }
+  return [spreadSubM, spreadFont, spreadVarejo, spreadEncargo, spreadFlex]
 }
 
 function addZero(n){
   return n.toString().length == 1 ?  n = '0' + n: n;
 }
 
-function setDataToSave(){
+function setDataToSave(){ 
+  let flexs = ["0", "±10%", "±20%", "±30%", "±100%"]
   let dt = new Date()
   var objToExport = {
     "usuario":document.getElementById('usernameVal').innerHTML,
@@ -127,6 +148,7 @@ function setDataToSave(){
     "Encargo": document.getElementById('encargoChck').value == 'encNotCheck' ? 'false' : 'true',
     "Fonte": document.querySelector('[name="fontRdBtn"]:checked').value,
     "Submercado": document.querySelector('[name="subM-val"]:checked').value,
+    "Flexibilidade": flexs[[0,1,2,3,3.96].indexOf((document.querySelector('input[type="range"]').value / 100) * 4)],
     'Ano':[],
     'Início do Fornecimento': [],
     'Fim do Fornecimento': [],
